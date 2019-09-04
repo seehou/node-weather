@@ -8,8 +8,8 @@ const forecast = (lat, long, cb) => {
   request( {url, json: true }, (error, response) => {
     const { currently = undefined } = response.body
     if (currently) {
-      const { temperature, precipProbability, summary } = currently;
-      cb(error, `${summary}. It is currently ${temperature} degrees out. There is a ${precipProbability}% chance of rain.`)
+      const { temperature, precipProbability, summary, windSpeed, visibility } = currently;
+      cb(error, `${summary}. It is currently ${temperature} degrees out. WindSpeed is ${windSpeed} and Visibility is ${visibility} .There is a ${precipProbability}% chance of rain.`)
     }
   })
 }
